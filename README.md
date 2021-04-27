@@ -1,0 +1,1 @@
+# SciChart.Sandbox
