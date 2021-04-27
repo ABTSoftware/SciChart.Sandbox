@@ -1,0 +1,6 @@
+**/Package.resolved
+**/xcuserdata/*
+**/*.framework
+**/.idea/
+**/Pods/*
+**/Carthage/*
