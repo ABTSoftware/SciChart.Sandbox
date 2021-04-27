@@ -10,9 +10,8 @@ struct LineChartExample: View {
 struct LineChartView: UIViewRepresentable {
     
     @Environment (\.colorScheme) var colorScheme: ColorScheme
+    @Environment (\.sizeCategory) var sizeCategory: ContentSizeCategory
 
-    let fontDescriptor = UIFontDescriptor(name: "Arial", size: 13)
-    
     func makeUIView(context: Context) -> SCIChartSurface {
         let surface = SCIChartSurface()
         
@@ -87,5 +86,20 @@ struct LineChartView: UIViewRepresentable {
         } else {
             SCIThemeManager.applyTheme(to: uiView, withThemeKey: SCIChart_SciChartv4DarkStyleKey)
         }
+        
+        if let primaryXAxis = uiView.xAxes.primaryAxis {
+            primaryXAxis.tickLabelStyle = scaledFontStyle(for: primaryXAxis.tickLabelStyle)
+        }
+        if let primaryYAxis = uiView.yAxes.primaryAxis {
+            primaryYAxis.tickLabelStyle = scaledFontStyle(for: primaryYAxis.tickLabelStyle)
+        }
+    }
+    
+    func scaledFontStyle(for fontStyle: SCIFontStyle) -> SCIFontStyle {
+        let fontDescriptor = fontStyle.fontDescriptor
+        let fontMetrics = UIFontMetrics(forTextStyle: UIFont.TextStyle.body)
+        let font = fontMetrics.scaledFont(for: UIFont(descriptor: fontDescriptor, size: fontDescriptor.pointSize))
+        
+        return SCIFontStyle(fontDescriptor: font.fontDescriptor, andTextColor: fontStyle.color)
     }
 }
