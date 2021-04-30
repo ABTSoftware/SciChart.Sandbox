@@ -1,4 +1,12 @@
-# Voice over(TalkBack)
+# Accessibility and SciChart
+
+This is a short description on the samples we have made as a part of feasibility of the Android accessibility features (voice over in particular). Here we describe the approach we took and what have we achieved. Please find interested sections below:
+
+- VoiceOver
+- Text Size
+- Color and Contrast
+
+## Voice over(TalkBack)
 
 We have experimented with the voice over the chart as the whole and as its parts on Android as well. For simplicity we decided to create a simple example voice over for that has columns and two numeric axes. We will also show where to add custom audio feedback for our chart modifier. We created list of messages which should be anounces through accessibility API for voice over: 
 
@@ -8,7 +16,7 @@ We have experimented with the voice over the chart as the whole and as its parts
 
 This example can be extended and added more messages for actions based on your requirements ( e.g. adding annotations, adding series etc ).
 
-## Example
+#### Example
 
 First, we have created a separate a fragment which contains chart with 2 axes and column series. We have also created custom pan, pinch zoom modifier and custom zoom to extents modifier for this example. To implement the talk back functionality we have created a custom SciChart Surface, that is called AccessibleSciChartSurface. For this surface we have also created a special helper class which we attach to chart by setting it as accessibility delegate and dispatching to it hover events.
 
@@ -307,5 +315,42 @@ class AccessibilityExampleFragment : Fragment() {
             surface.sendAccessibilityEvent(AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED)
         }
     }
+}
+```
+
+## Text Size
+
+By default, chart accepts sizes in real device pixels, but we provide SciChart Builder API that wraps this API and provides helper methods for creating styles with device independent sizes based on [DisplayMetrics](https://developer.android.com/reference/android/util/DisplayMetrics) provided by Android [Context](https://developer.android.com/reference/android/content/Context). So when you change text scaling - application's Context gets updated DisplayMetrics, and as result text size responds correctly on system font size changes. 
+
+```java
+// device independent sizes
+final FastLineRenderableSeries rSeries = sciChartBuilder.newLineSeries().withDataSeries(dataSeries).withStrokeStyle(0xFF279B 27, 1f, true).build();
+
+// device independent sizes
+rSeries.setStrokeStyle(sciChartBuilder.newPen().withColor(0xFF279B27).withThickness (1).build());
+
+// size in device pixels
+rSeries.setStrokeStyle(new SolidPenStyle(0xFF279B27, true, 1, null));
+```
+
+or you can transform device independent size to pixel size on your own:
+
+```kotlin
+strokeStyle = SolidPenStyle(ColorUtil.White, true, 1f.toDip(), null)
+
+fun Float.toDip(): Float {
+    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, this, Resources.getSystem().displayMetrics)
+}
+```
+
+## Color and Contrast
+
+Since colors and theming are most likely to be custom for each customer, we don't provide out of the box light and dark theme handling (nor special theme for High Contrast). But that's easy achievable through Android API by checking current color scheme and update theme manually using one of the provided themes, or creating custom one:
+
+```kotlin
+surface.theme = if(requireContext().isDarkThemeOn()) R.style.SciChart_SciChartv4DarkStyle else R.style.SciChart_Bright_Spark
+
+fun Context.isDarkThemeOn(): Boolean {
+    return resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == UI_MODE_NIGHT_YES
 }
 ```

@@ -1,6 +1,11 @@
 package com.scichart.accessebility
 
+import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.content.res.Resources
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -69,7 +74,7 @@ class AccessibilityExampleFragment : Fragment() {
         }
 
         val rSeries: FastColumnRenderableSeries = FastColumnRenderableSeries().apply {
-            strokeStyle = SolidPenStyle(ColorUtil.White, true, 1f, null)
+            strokeStyle = SolidPenStyle(ColorUtil.White, true, 1f.toDip(), null)
             dataPointWidth = 0.7
             fillBrushStyle = LinearGradientBrushStyle(
                 0f,
@@ -94,6 +99,9 @@ class AccessibilityExampleFragment : Fragment() {
             surface.chartModifiers.add(
                 ModifierGroup(pinchZoomModifier, zoomPanModifier, zoomExtentsModifier)
             )
+
+            surface.theme =
+                if (requireContext().isDarkThemeOn()) R.style.SciChart_SciChartv4DarkStyle else R.style.SciChart_Bright_Spark
         }
 
         val xAxisNode = AxisNode(xAxis, nodes.size)
@@ -109,5 +117,18 @@ class AccessibilityExampleFragment : Fragment() {
         yAxis.setVisibleRangeChangeListener { axis, oldRange, newRange, isAnimating -> // need to send this even to update position of rects on screen during scrolling
             surface.sendAccessibilityEvent(AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED)
         }
+    }
+
+    fun Float.toDip(): Float {
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            this,
+            Resources.getSystem().displayMetrics
+        )
+    }
+
+    fun Context.isDarkThemeOn(): Boolean {
+        return resources.configuration.uiMode and
+                Configuration.UI_MODE_NIGHT_MASK == UI_MODE_NIGHT_YES
     }
 }
