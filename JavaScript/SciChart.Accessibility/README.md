@@ -123,6 +123,7 @@ It's easy to subscribe to the theme change as well:
         .addEventListener("change", handleSystemThemeChange);
 ```
 
+For creating themes which are suitable to color-blind users, please see our guide on [Creating a Custom Theme](https://www.scichart.com/documentation/js/current/webframe.html#Chart%20Styling%20-%20Creating%20a%20Custom%20Theme.html). These can be applied to the chart by calling ```sciChartSurface.applyTheme()```
 
 ## Zoom and Pan with keyboard
 
