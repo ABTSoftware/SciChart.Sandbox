@@ -12,6 +12,10 @@ struct ContentView: View {
                     title: "Column Chart",
                     destination: ColumnChartExample()
                 )
+                navigationLink(
+                    title: "Stacked Column Chart",
+                    destination: StackedColumnChartExample()
+                )
             }
             .navigationBarTitle("Accessibility examples")
         }

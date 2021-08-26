@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C1291AE26D817C300254919 /* StackedColumnChartExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1291AD26D817C300254919 /* StackedColumnChartExample.swift */; };
 		9CC1926B26381C1D006891CA /* SciChartAccessibilityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC1926A26381C1D006891CA /* SciChartAccessibilityApp.swift */; };
 		9CC1926D26381C1D006891CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC1926C26381C1D006891CA /* ContentView.swift */; };
 		9CC1926F26381C1D006891CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC1926E26381C1D006891CA /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C1291AD26D817C300254919 /* StackedColumnChartExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedColumnChartExample.swift; sourceTree = "<group>"; };
 		9CC1926726381C1D006891CA /* SciChart.Accessibility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciChart.Accessibility.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC1926A26381C1D006891CA /* SciChartAccessibilityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SciChartAccessibilityApp.swift; sourceTree = "<group>"; };
 		9CC1926C26381C1D006891CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 			children = (
 				9CC1928726381D89006891CA /* ColumnChartExample.swift */,
 				9CC1928426381D80006891CA /* LineChartExample.swift */,
+				9C1291AD26D817C300254919 /* StackedColumnChartExample.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				9CC1928126381CAD006891CA /* SciChartAccessibilityExtensions.swift in Sources */,
 				9CC1928526381D80006891CA /* LineChartExample.swift in Sources */,
 				9CC1926D26381C1D006891CA /* ContentView.swift in Sources */,
+				9C1291AE26D817C300254919 /* StackedColumnChartExample.swift in Sources */,
 				9CC1928826381D89006891CA /* ColumnChartExample.swift in Sources */,
 				9CC1926B26381C1D006891CA /* SciChartAccessibilityApp.swift in Sources */,
 				9CC1928026381CAD006891CA /* SciChartLicenseHelper.swift in Sources */,
