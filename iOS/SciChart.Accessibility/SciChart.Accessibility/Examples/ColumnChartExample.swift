@@ -35,16 +35,12 @@ struct ColumnChartView: UIViewRepresentable {
         }
         
         xAxis.visibleRangeChangeListener = { (_, _, range, _) in
-            guard let newRange = range else { return }
-            
-            let announsment = "X Axis range changed, now it's \(newRange.format())"
+            let announsment = "X Axis range changed, now it's \(range.format())"
             UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: announsment)
         }
         
         yAxis.visibleRangeChangeListener = { (_, _, range, _) in
-            guard let newRange = range else { return }
-            
-            let announsment = "Y Axis range changed, now it's \(newRange.format())"
+            let announsment = "Y Axis range changed, now it's \(range.format())"
             UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: announsment)
         }
         

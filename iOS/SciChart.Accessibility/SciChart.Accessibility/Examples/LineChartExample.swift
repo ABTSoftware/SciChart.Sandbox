@@ -39,16 +39,12 @@ struct LineChartView: UIViewRepresentable {
         }
         
         xAxis.visibleRangeChangeListener = { (_, _, range, _) in
-            guard let newRange = range else { return }
-            
-            let announsment = "X Axis range changed, now it's \(newRange.format())"
+            let announsment = "X Axis range changed, now it's \(range.format())"
             UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: announsment)
         }
         
         yAxis.visibleRangeChangeListener = { (_, _, range, _) in
-            guard let newRange = range else { return }
-            
-            let announsment = "Y Axis range changed, now it's \(newRange.format())"
+            let announsment = "Y Axis range changed, now it's \(range.format())"
             UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: announsment)
         }
         
@@ -82,9 +78,9 @@ struct LineChartView: UIViewRepresentable {
     
     func updateUIView(_ uiView: SCIChartSurface, context: Context) {
         if self.colorScheme == .light {
-            SCIThemeManager.applyTheme(to: uiView, withThemeKey: SCIChart_Bright_SparkStyleKey)
+            SCIThemeManager.applyTheme(.brightSpark, to: uiView)
         } else {
-            SCIThemeManager.applyTheme(to: uiView, withThemeKey: SCIChart_SciChartv4DarkStyleKey)
+            SCIThemeManager.applyTheme(.v4Dark, to: uiView)
         }
         
         if let primaryXAxis = uiView.xAxes.primaryAxis {

@@ -102,7 +102,7 @@ extension SCIAxisBase {
         set { super.accessibilityLabel = newValue }
     }
     open override var accessibilityFrame: CGRect {
-        get { return UIAccessibility.convertToScreenCoordinates(self.layoutRect, in: self.parentSurface.view) }
+        get { return UIAccessibility.convertToScreenCoordinates(self.layoutRect, in: self.parentSurface!.view) }
         set { super.accessibilityFrame = newValue }
     }
     open override var isAccessibilityElement: Bool {
