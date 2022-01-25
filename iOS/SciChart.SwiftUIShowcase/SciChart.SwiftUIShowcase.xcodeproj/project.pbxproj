@@ -11,10 +11,11 @@
 		8715B6E5271F0EAA00CA8EA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715B6E4271F0EAA00CA8EA4 /* ContentView.swift */; };
 		8715B6E7271F0EAB00CA8EA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8715B6E6271F0EAB00CA8EA4 /* Assets.xcassets */; };
 		8715B6EA271F0EAB00CA8EA4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8715B6E9271F0EAB00CA8EA4 /* Preview Assets.xcassets */; };
-		8715B6F2271F0F2000CA8EA4 /* SciChart in Frameworks */ = {isa = PBXBuildFile; productRef = 8715B6F1271F0F2000CA8EA4 /* SciChart */; };
-		8715B6F4271F0F3B00CA8EA4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715B6F3271F0F3B00CA8EA4 /* ChartView.swift */; };
 		8715B6FB271F170E00CA8EA4 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715B6FA271F170E00CA8EA4 /* ChartModel.swift */; };
 		8715B6FD271F172F00CA8EA4 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715B6FC271F172F00CA8EA4 /* ChartViewModel.swift */; };
+		8725349F271F1D290065587C /* SciChart in Frameworks */ = {isa = PBXBuildFile; productRef = 8725349E271F1D290065587C /* SciChart */; };
+		87D603FE27A0087600C41936 /* SCIChartSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D603FD27A0087600C41936 /* SCIChartSurfaceView.swift */; };
+		87D6040127A008C800C41936 /* UIViewRepresentableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D6040027A008C800C41936 /* UIViewRepresentableWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +24,10 @@
 		8715B6E4271F0EAA00CA8EA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8715B6E6271F0EAB00CA8EA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8715B6E9271F0EAB00CA8EA4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8715B6F3271F0F3B00CA8EA4 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		8715B6FA271F170E00CA8EA4 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 		8715B6FC271F172F00CA8EA4 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		87D603FD27A0087600C41936 /* SCIChartSurfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCIChartSurfaceView.swift; sourceTree = "<group>"; };
+		87D6040027A008C800C41936 /* UIViewRepresentableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewRepresentableWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8715B6F2271F0F2000CA8EA4 /* SciChart in Frameworks */,
+				8725349F271F1D290065587C /* SciChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,12 +61,13 @@
 		8715B6E1271F0EAA00CA8EA4 /* SciChart.SwiftUIShowcase */ = {
 			isa = PBXGroup;
 			children = (
-				8715B6E2271F0EAA00CA8EA4 /* SciChart_SwiftUIShowcaseApp.swift */,
-				8715B6E4271F0EAA00CA8EA4 /* ContentView.swift */,
-				8715B6FC271F172F00CA8EA4 /* ChartViewModel.swift */,
 				8715B6FA271F170E00CA8EA4 /* ChartModel.swift */,
-				8715B6F3271F0F3B00CA8EA4 /* ChartView.swift */,
+				8715B6FC271F172F00CA8EA4 /* ChartViewModel.swift */,
+				8715B6E4271F0EAA00CA8EA4 /* ContentView.swift */,
+				8715B6E2271F0EAA00CA8EA4 /* SciChart_SwiftUIShowcaseApp.swift */,
+				87D603FD27A0087600C41936 /* SCIChartSurfaceView.swift */,
 				8715B6E6271F0EAB00CA8EA4 /* Assets.xcassets */,
+				87D603FF27A008A700C41936 /* Helpers */,
 				8715B6E8271F0EAB00CA8EA4 /* Preview Content */,
 			);
 			path = SciChart.SwiftUIShowcase;
@@ -76,6 +79,14 @@
 				8715B6E9271F0EAB00CA8EA4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		87D603FF27A008A700C41936 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				87D6040027A008C800C41936 /* UIViewRepresentableWrapper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,7 +106,7 @@
 			);
 			name = SciChart.SwiftUIShowcase;
 			packageProductDependencies = (
-				8715B6F1271F0F2000CA8EA4 /* SciChart */,
+				8725349E271F1D290065587C /* SciChart */,
 			);
 			productName = SciChart.SwiftUIShowcase;
 			productReference = 8715B6DF271F0EAA00CA8EA4 /* SciChart.SwiftUIShowcase.app */;
@@ -126,7 +137,7 @@
 			);
 			mainGroup = 8715B6D6271F0EAA00CA8EA4;
 			packageReferences = (
-				8715B6F0271F0F2000CA8EA4 /* XCRemoteSwiftPackageReference "SciChart-SP" */,
+				8725349D271F1D290065587C /* XCRemoteSwiftPackageReference "SciChart-SP" */,
 			);
 			productRefGroup = 8715B6E0271F0EAA00CA8EA4 /* Products */;
 			projectDirPath = "";
@@ -155,10 +166,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8715B6FD271F172F00CA8EA4 /* ChartViewModel.swift in Sources */,
+				87D603FE27A0087600C41936 /* SCIChartSurfaceView.swift in Sources */,
 				8715B6E5271F0EAA00CA8EA4 /* ContentView.swift in Sources */,
 				8715B6E3271F0EAA00CA8EA4 /* SciChart_SwiftUIShowcaseApp.swift in Sources */,
+				87D6040127A008C800C41936 /* UIViewRepresentableWrapper.swift in Sources */,
 				8715B6FB271F170E00CA8EA4 /* ChartModel.swift in Sources */,
-				8715B6F4271F0F3B00CA8EA4 /* ChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,20 +377,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8715B6F0271F0F2000CA8EA4 /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
+		8725349D271F1D290065587C /* XCRemoteSwiftPackageReference "SciChart-SP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ABTSoftware/SciChart-SP";
 			requirement = {
 				kind = revision;
-				revision = 48b9f78c2e4ce5b220ae77f2fd418aaaaf065a17;
+				revision = 6886b3e5775ad659cec2a17446cbe8bbdf05f25b;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8715B6F1271F0F2000CA8EA4 /* SciChart */ = {
+		8725349E271F1D290065587C /* SciChart */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8715B6F0271F0F2000CA8EA4 /* XCRemoteSwiftPackageReference "SciChart-SP" */;
+			package = 8725349D271F1D290065587C /* XCRemoteSwiftPackageReference "SciChart-SP" */;
 			productName = SciChart;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -15,11 +15,80 @@
 //******************************************************************************
 
 import SwiftUI
+import SciChart
 
 struct ContentView: View {
+    @ObservedObject var viewModel = ChartViewModel()
+    
     var body: some View {
-        ChartView()
+        SCIChartSurfaceView(updateSurface: { surface in
+            // update surface properties on viewModel change if needed
+        })
+            .xAxis(xAxis)
+            .yAxis(yAxis)
+            .renderableSeries(rSeries1)
+            .renderableSeries(rSeries2)
+            .renderableSeries(rSeries3)
+            .modifier(legendModifier)
+            .modifier(SCISeriesValueModifier())
             .ignoresSafeArea()
+    }
+}
+
+extension ContentView {
+    private var xAxis: ISCIAxis {
+        let xAxis = SCINumericAxis()
+        xAxis.autoRange = .always
+        xAxis.axisTitle = "Time (Seconds)"
+        xAxis.textFormatting = "0.0"
+        
+        return xAxis
+    }
+    
+    private var yAxis: ISCIAxis {
+        let yAxis = SCINumericAxis()
+        yAxis.autoRange = .always
+        yAxis.axisTitle = "Amplitude (Volts)"
+        yAxis.growBy = SCIDoubleRange(min: 0.1, max: 0.1)
+        yAxis.textFormatting = "0.00"
+        yAxis.cursorTextFormatting = "0.00"
+        
+        return yAxis
+    }
+}
+
+extension ContentView {
+    private var rSeries1: ISCIRenderableSeries {
+        let rSeries = SCIFastLineRenderableSeries()
+        rSeries.dataSeries = viewModel.chartModel.ds1
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFFFF8C00, thickness: 2)
+        
+        return rSeries
+    }
+    
+    private var rSeries2: ISCIRenderableSeries {
+        let rSeries = SCIFastLineRenderableSeries()
+        rSeries.dataSeries = viewModel.chartModel.ds2
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF4682B4, thickness: 2)
+        
+        return rSeries
+    }
+
+    private var rSeries3: ISCIRenderableSeries {
+        let rSeries = SCIFastLineRenderableSeries()
+        rSeries.dataSeries = viewModel.chartModel.ds3
+        rSeries.strokeStyle = SCISolidPenStyle(color: 0xFF556B2F, thickness: 2)
+        
+        return rSeries
+    }
+}
+
+extension ContentView {
+    private var legendModifier: ISCIChartModifier {
+        let legendModifier = SCILegendModifier()
+        legendModifier.margins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        
+        return legendModifier
     }
 }
 

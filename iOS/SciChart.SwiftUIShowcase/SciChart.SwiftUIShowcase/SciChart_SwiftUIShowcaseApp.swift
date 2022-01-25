@@ -15,9 +15,14 @@
 //******************************************************************************
 
 import SwiftUI
+import SciChart
 
 @main
 struct SciChart_SwiftUIShowcaseApp: App {
+    init() {
+        SCIChartSurface.setRuntimeLicenseKey("")
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
