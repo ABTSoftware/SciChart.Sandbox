@@ -1,15 +1,15 @@
 //******************************************************************************
-// SCICHART® Copyright SciChart Ltd. 2011-2019. All rights reserved.
+// SCICHART® Copyright SciChart Ltd. 2011-2022. All rights reserved.
 //
 // Web: http://www.scichart.com
 // Support: support@scichart.com
 // Sales:   sales@scichart.com
 //
-// ContentView.swift is part of the SCICHART® Examples. Permission is hereby granted
+// ContentView.swift is part of the SCICHART® SciChart.SwiftUIShowcase App. Permission is hereby granted
 // to modify, create derivative works, distribute and publish any part of this source
 // code whether for commercial, private or personal use.
 //
-// The SCICHART® examples are distributed in the hope that they will be useful, but
+// The SCICHART® SciChart.SwiftUIShowcase App is distributed in the hope that it will be useful, but
 // without any warranty. It is provided "AS IS" without warranty of any kind, either
 // expressed or implied.
 //******************************************************************************
@@ -86,8 +86,11 @@ extension ContentView {
 extension ContentView {
     private var legendModifier: ISCIChartModifier {
         let legendModifier = SCILegendModifier()
-        legendModifier.margins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        
+#if os(iOS)
+        legendModifier.margins = SCIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
+#elseif os(macOS)
+        legendModifier.margins = NSEdgeInsets(top: 46, left: 16, bottom: 0, right: 16)
+#endif
         return legendModifier
     }
 }
